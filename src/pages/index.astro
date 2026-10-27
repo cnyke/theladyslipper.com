@@ -2,34 +2,27 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="The Lady Slipper">
+<Layout title="The Lady Slipper Bulletin">
     <main>
-        <figure>
-            <img
-                src="/images/haeckel-orchideae-plate-74.webp"
-                alt="Ernst Haeckel's plate of orchids: lady slippers and other blooms in white, pink, burgundy and gold, crowded on a tan ground"
-                width="1400"
-                height="2000"
-            />
-            <figcaption>
-                Ernst Haeckel, <cite>Kunstformen der Natur</cite> (1904),
-                plate 74: Orchideae.
-            </figcaption>
-        </figure>
-        <h1>The Lady Slipper</h1>
-        <p>Coming soon.</p>
-        <p class="signup">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfipLL6Fh195pDBu0iIRgFyf0QiiZO88HKdQdlnvDcsPzs_TQ/viewform"
-                >Get the Bulletin in the mail</a
-            >
-        </p>
+        <h1 class="visually-hidden">The Lady Slipper Bulletin</h1>
+        <img
+            src="/images/ladyslipper-autumn.webp"
+            alt="Sign up for The Lady Slipper Bulletin, for odd fragments of Minneapolis. A watercolor and ink card titled Bde Maka Ska, Minneapolis, Minnesota: an autumn tree branch in red, orange and gold, a falling leaf, two portable toilets, a blue stone pillar, a young tree and green brush, dated 10/26/26."
+            width="1500"
+            height="2000"
+        />
+        <a
+            class="signup"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfipLL6Fh195pDBu0iIRgFyf0QiiZO88HKdQdlnvDcsPzs_TQ/viewform"
+            >Get the Bulletin in the mail</a
+        >
     </main>
 </Layout>
 
 <style is:global>
     html {
-        background: #f1e4d2;
-        color: #3b2a22;
+        background: #150e0d;
+        color: #dca43c;
         font-family: "Courier New", Courier, monospace;
     }
     body {
@@ -37,55 +30,51 @@ import Layout from "../layouts/Layout.astro";
     }
     main {
         min-height: 100vh;
+        min-height: 100svh;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 40px 16px;
-        text-align: center;
+        padding: 16px;
+        gap: 16px;
     }
-    figure {
-        margin: 0 0 32px;
-    }
+    /* The card plus the button always fit in one screen */
     img {
         display: block;
         width: auto;
-        max-width: min(100%, 520px);
-        max-height: 72vh;
         height: auto;
-        margin: 0 auto;
-        box-shadow: 0 2px 18px rgba(59, 42, 34, 0.18);
-    }
-    figcaption {
-        margin-top: 12px;
-        font-size: 12px;
-        color: #7a6555;
-    }
-    h1 {
-        margin: 0;
-        font-size: clamp(28px, 6vw, 44px);
-        font-weight: normal;
-        letter-spacing: 0.04em;
-    }
-    p {
-        margin: 12px 0 0;
-        font-size: 18px;
+        max-width: 100%;
+        max-height: calc(100vh - 96px);
+        max-height: calc(100svh - 96px);
+        /* Feather the photo's edges into the page so its black doesn't show a seam */
+        -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent),
+            linear-gradient(to bottom, transparent, #000 1.5%, #000 98.5%, transparent);
+        -webkit-mask-composite: source-in;
+        mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent),
+            linear-gradient(to bottom, transparent, #000 1.5%, #000 98.5%, transparent);
+        mask-composite: intersect;
     }
     .signup {
-        margin-top: 24px;
-    }
-    .signup a {
         display: inline-block;
         padding: 10px 18px;
-        border: 1.5px solid #3b2a22;
-        color: #3b2a22;
+        border: 1.5px solid #dca43c;
+        color: #dca43c;
         text-decoration: none;
         font-size: 16px;
+        font-weight: bold;
     }
-    .signup a:hover,
-    .signup a:focus-visible {
-        background: #3b2a22;
-        color: #f1e4d2;
+    .signup:hover,
+    .signup:focus-visible {
+        background: #dca43c;
+        color: #150e0d;
+    }
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
     }
 </style>

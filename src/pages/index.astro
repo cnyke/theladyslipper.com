@@ -16,6 +16,22 @@ import Layout from "../layouts/Layout.astro";
             href="https://docs.google.com/forms/d/e/1FAIpQLSfipLL6Fh195pDBu0iIRgFyf0QiiZO88HKdQdlnvDcsPzs_TQ/viewform"
             >Get the Bulletin in the mail</a
         >
+        <section class="about">
+            <p>
+                Seasonal dispatches from Minneapolis. Free, four times a year.
+            </p>
+            <p>
+                The zine (short for magazine) includes poems, little stories,
+                watercolors, drawings, and other dispatches from Minneapolis,
+                Minnesota, USA.
+            </p>
+            <p class="small">
+                Your address is only used to mail the zine and never shared.
+            </p>
+            <p class="small">
+                By <a href="https://clairenyquist.com">Claire Nyquist</a>
+            </p>
+        </section>
     </main>
 </Layout>
 
@@ -68,6 +84,22 @@ import Layout from "../layouts/Layout.astro";
     .signup:focus-visible {
         background: #dca43c;
         color: #150e0d;
+    }
+    .about {
+        max-width: 34em;
+        text-align: center;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+    .about p {
+        margin: 0 0 12px;
+    }
+    .about .small {
+        font-size: 14px;
+        opacity: 0.85;
+    }
+    .about a {
+        color: #dca43c;
     }
     .visually-hidden {
         position: absolute;
